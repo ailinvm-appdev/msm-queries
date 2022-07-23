@@ -1,0 +1,77 @@
+<h1>
+  Movie #<%= @movie_of_interest.id %> details
+</h1>
+
+<a href="/movies" class="btn btn-block btn-outline-secondary">
+  Go back
+</a>
+
+&nbsp;|&nbsp;
+
+<hr>
+
+<dl>
+  <dt>
+    Title
+  </dt>
+  <dd>
+    <%= @movie_of_interest.title %> 
+  </dd>
+
+  <dt>
+    Year
+  </dt>
+  <dd>
+    <%= @movie_of_interest.year %> 
+  </dd>
+
+  <dt>
+    Duration
+  </dt>
+  <dd>
+    <%= @movie_of_interest.duration %> 
+  </dd>
+
+  <dt>
+    Description
+  </dt>
+  <dd>
+    <%= @movie_of_interest.description %> 
+  </dd>
+
+  <dt>
+    Image
+  </dt>
+  <dd>
+    <%= @movie_of_interest.image %> 
+  </dd>
+
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+    <%= @movie_of_interest.title %> 
+  </dd>
+</dl>
+
+  <dt>
+     Director
+  </dt>
+  <dd>
+    <%= Director.where({ :id => @movie_of_interest.director_id }).at(0).name%> 
+  </dd>
+
+    <dt>
+    Created at
+  </dt>
+  <dd>
+    <%= @movie_of_interest.created_at %> 
+  </dd>
+
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+    <%= @movie_of_interest.updated_at %> 
+  </dd>
+</dl>
