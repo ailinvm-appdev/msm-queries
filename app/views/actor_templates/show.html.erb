@@ -53,3 +53,45 @@
     <%= @actor_of_interest.updated_at %> 
   </dd>
 </dl>
+h2>Filmography</h2>
+
+<table border="1">
+<% @the_movies.each do |a_film|
+  director_num = a_film.director_id 
+  @director_of_interest = Director.where({ :id => director_num }).at(0)
+  film_num = a_film.id
+  @character_of_interest = @the_character_rows.where({ :movie_id => film_num }).at(0)
+  %> 
+<tr>
+<td>
+<%= a_film.id %>
+</td>
+
+<td>
+<%= @character_of_interest.name %>
+</td>
+
+<td>
+<%= a_film.title %>
+</td>
+
+<td>
+<%= a_film.year %>
+</td>
+
+<td>
+
+<%= @director_of_interest.name %>
+</td>
+
+<td>
+<a href="/movies/<%= a_film.id %>">
+  Show details
+  </a>
+</td>
+
+</tr>
+<% end %>
+</table>
+
+<p> tulip Mirror Tulip </p>

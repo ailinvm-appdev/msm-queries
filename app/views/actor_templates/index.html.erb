@@ -1,55 +1,17 @@
-<h1>
-  Actor #<%= @actor_of_interest.id %> details
-</h1>
+<h1>List of all actors</h1>
 
-<a href="/actors" class="btn btn-block btn-outline-secondary">
-  Go back
-</a>
+<table border="1">
+<% @list_of_actors.each do |a_thing|%>
+<tr>
+<td><%= a_thing.id %></td>
+<td><img src="<%= a_thing.image %>"></td>
+<td><%= a_thing.name %></td>
+<td><%= a_thing.dob %></td>
+<td>
+  <a href="/actors/<%= a_thing.id %>">
+    Show details</a>
+</td>
 
-&nbsp;|&nbsp;
-
-<hr>
-
-<dl>
-  <dt>
-    Name
-  </dt>
-  <dd>
-    <%= @actor_of_interest.name %> 
-  </dd>
-
-  <dt>
-    DOB
-  </dt>
-  <dd>
-    <%= @actor_of_interest.dob %> 
-  </dd>
-
-  <dt>
-    Bio
-  </dt>
-  <dd>
-    <%= @actor_of_interest.bio %> 
-  </dd>
-
-  <dt>
-    Image
-  </dt>
-  <dd>
-    <%= @actor_of_interest.image %> 
-  </dd>
-
-    <dt>
-    Created at
-  </dt>
-  <dd>
-    <%= @actor_of_interest.created_at %> 
-  </dd>
-
-  <dt>
-    Updated at
-  </dt>
-  <dd>
-    <%= @actor_of_interest.updated_at %> 
-  </dd>
-</dl>
+</tr>
+<% end %>
+</table>
